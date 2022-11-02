@@ -17,7 +17,7 @@ function onFormSubmit(e) {
   let delay = 0;
   let position = 0;
 
-  for (let i = 0; i < amountNumber; i += 1) {
+  for (let i = 0; i < amountNumber; i++) {
     position += 1;
     delay = delayNumber + stepNumber * i;
 
@@ -40,6 +40,6 @@ function createPromise(position, delay) {
         // Reject
         reject(`❌ Rejected promise ${position} in ${delay}ms`);
       }
-    });
+    }, delay);
   });
 }
