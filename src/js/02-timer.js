@@ -8,7 +8,6 @@ const daysEl = document.querySelector('[data-days]');
 const hoursEl = document.querySelector('[data-hours]');
 const minutesEl = document.querySelector('[data-minutes]');
 const secondsEl = document.querySelector('[data-seconds]');
-const fp = flatpickr('input', options);
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -25,6 +24,7 @@ const options = {
     startBtn.disabled = false;
   },
 };
+const fp = flatpickr('input', options);
 let timerId = null;
 
 startBtn.disabled = true;
