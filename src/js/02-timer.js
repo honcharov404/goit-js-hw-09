@@ -2,7 +2,9 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 
-const inputEl = document.querySelector('#datetime-picker');
+const bodyEl = document.querySelector('body');
+const backEl = document.querySelector('p');
+const timerInner = document.querySelector('.timer');
 const startBtn = document.querySelector('[data-start]');
 const daysEl = document.querySelector('[data-days]');
 const hoursEl = document.querySelector('[data-hours]');
@@ -26,6 +28,17 @@ const options = {
 };
 const fp = flatpickr('input', options);
 let timerId = null;
+
+bodyEl.style.textAlign = 'center';
+backEl.style.textAlign = 'left';
+timerInner.style.display = 'flex';
+timerInner.style.justifyContent = 'center';
+timerInner.style.gap = '20px';
+startBtn.style.marginBottom = '40px';
+daysEl.style.fontSize = '72px';
+hoursEl.style.fontSize = '72px';
+minutesEl.style.fontSize = '72px';
+secondsEl.style.fontSize = '72px';
 
 startBtn.disabled = true;
 startBtn.addEventListener('click', onCountDown);
