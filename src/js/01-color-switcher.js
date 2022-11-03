@@ -3,6 +3,8 @@ const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
 let timerId = null;
 
+stopBtn.disabled = true;
+
 startBtn.addEventListener('click', onStartChangeColor);
 stopBtn.addEventListener('click', onStopChangeColor);
 
@@ -10,6 +12,7 @@ function onStartChangeColor() {
   onChangeColor();
   timerId = setInterval(onChangeColor, 1000);
   startBtn.disabled = true;
+  stopBtn.disabled = false;
 }
 
 function onChangeColor() {
@@ -19,6 +22,7 @@ function onChangeColor() {
 function onStopChangeColor() {
   clearInterval(timerId);
   startBtn.disabled = false;
+  stopBtn.disabled = true;
   bodyEl.style.backgroundColor = '';
 }
 

@@ -22,7 +22,7 @@ function onFormSubmit(e) {
       .then(resolve => Notiflix.Notify.success(resolve))
       .catch(reject => Notiflix.Notify.failure(reject));
   }
-  evt.currentTarget.reset();
+  e.currentTarget.reset();
 }
 
 function createPromise(position, delay) {

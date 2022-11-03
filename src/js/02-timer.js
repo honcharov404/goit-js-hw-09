@@ -46,6 +46,7 @@ startBtn.addEventListener('click', onCountDown);
 function onCounterTimer() {
   const dateNow = new Date();
   const counter = fp.latestSelectedDateObj.getTime() - dateNow.getTime();
+
   return counter;
 }
 
@@ -77,17 +78,13 @@ function convertMs() {
   minutesEl.textContent = `${minutes}`;
   secondsEl.textContent = `${seconds}`;
 
-  if (
-    daysEl.textContent === '00' &&
-    hoursEl.textContent === '00' &&
-    minutesEl.textContent === '00' &&
-    secondsEl.textContent === '00'
-  ) {
+  if (counter < 1000) {
     clearInterval(timerId);
   }
 }
 
 function onCountDown() {
+  convertMs();
   timerId = setInterval(convertMs, 1000);
   startBtn.disabled = true;
 }
