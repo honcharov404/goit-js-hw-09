@@ -38,10 +38,10 @@ function createPromise(position, delay) {
     setTimeout(() => {
       if (shouldResolve) {
         // Fulfill
-        resolve({ position: position, delay: delay });
+        resolve({ position, delay });
       } else {
         // Reject
-        reject({ position: position, delay: delay });
+        reject({ position, delay });
       }
     }, delay);
   });

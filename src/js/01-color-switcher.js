@@ -23,7 +23,6 @@ function onStopChangeColor() {
   clearInterval(timerId);
   startBtn.disabled = false;
   stopBtn.disabled = true;
-  bodyEl.style.backgroundColor = '';
 }
 
 function getRandomHexColor() {
