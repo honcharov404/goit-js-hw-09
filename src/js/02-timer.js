@@ -4,6 +4,7 @@ import Notiflix from 'notiflix';
 
 const bodyEl = document.querySelector('body');
 const backEl = document.querySelector('p');
+const inputEl = document.querySelector('#datetime-picker');
 const timerInner = document.querySelector('.timer');
 const startBtn = document.querySelector('[data-start]');
 const daysEl = document.querySelector('[data-days]');
@@ -87,4 +88,5 @@ function onCountDown() {
   convertMs();
   timerId = setInterval(convertMs, 1000);
   startBtn.disabled = true;
+  inputEl.disabled = true;
 }
