@@ -19,8 +19,14 @@ function onFormSubmit(e) {
     delay = delayNumber + stepNumber * i;
 
     createPromise(position, delay)
-      .then(resolve => Notiflix.Notify.success(resolve))
-      .catch(reject => Notiflix.Notify.failure(reject));
+      .then(({ position, delay }) =>
+        Notiflix.Notify.success(
+          `✅ Fulfilled promise ${position} in ${delay}ms`
+        )
+      )
+      .catch(({ position, delay }) =>
+        Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`)
+      );
   }
   e.currentTarget.reset();
 }
@@ -32,10 +38,10 @@ function createPromise(position, delay) {
     setTimeout(() => {
       if (shouldResolve) {
         // Fulfill
-        resolve(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        resolve({ position: position, delay: delay });
       } else {
         // Reject
-        reject(`❌ Rejected promise ${position} in ${delay}ms`);
+        reject({ position: position, delay: delay });
       }
     }, delay);
   });
