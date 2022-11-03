@@ -22,6 +22,7 @@ const options = {
     const enterData = fp.latestSelectedDateObj.getTime();
     if (enterData < pointOfStart) {
       Notiflix.Notify.failure('Please choose a date in the future');
+      startBtn.disabled = true;
       return;
     }
     startBtn.disabled = false;
